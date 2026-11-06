@@ -1,0 +1,1212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Aya ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --pink: #f5c5d0;
+    --light-pink: #fff0f3;
+    --rose: #d97891;
+    --red: #8d2947;
+    --dark-red: #401524;
+    --white: #fffafa;
+    --text: #593541;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* LOADING SCREEN */
+
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--dark-red);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity .8s, visibility .8s;
+}
+
+.loader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-heart {
+    font-size: 55px;
+    animation: heartbeat 1s infinite;
+}
+
+.loader p {
+    color: white;
+    font-size: 11px;
+    letter-spacing: 5px;
+    margin-top: 20px;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* FLOATING HEARTS */
+
+#hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    color: #d97891;
+    opacity: .5;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    15% { opacity: .55; }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* INTRO SCREEN */
+
+.intro-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    background:
+        radial-gradient(circle at 50% 35%, #9e405e, transparent 55%),
+        linear-gradient(135deg, #401524, #210c15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+    transition: opacity 1s, visibility 1s;
+}
+
+.intro-screen.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.intro-content {
+    max-width: 650px;
+    color: white;
+    animation: appear 1.5s ease;
+}
+
+.intro-content .small {
+    font-size: 11px;
+    letter-spacing: 6px;
+    color: var(--pink);
+    text-transform: uppercase;
+}
+
+.intro-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(55px, 10vw, 100px);
+    font-weight: 400;
+    margin: 20px 0;
+}
+
+.intro-content h1 span {
+    color: #ffb9cd;
+    font-style: italic;
+}
+
+.intro-content p {
+    color: #f2dce3;
+    font-size: 13px;
+    line-height: 2;
+    margin-bottom: 35px;
+}
+
+.open-button {
+    padding: 17px 35px;
+    border: 1px solid #ffc0d0;
+    background: #ffc0d0;
+    color: #461629;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: .4s;
+}
+
+.open-button:hover {
+    background: transparent;
+    color: white;
+    transform: translateY(-5px);
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* NAVIGATION */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: .4s;
+}
+
+header.scrolled {
+    background: rgba(255,250,250,.93);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 25px rgba(80,20,40,.06);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--red);
+}
+
+.logo span {
+    color: var(--rose);
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--rose);
+}
+
+.menu-button {
+    display: none;
+    border: none;
+    background: none;
+    color: var(--red);
+    font-size: 27px;
+}
+
+/* GENERAL */
+
+section {
+    padding: 110px 9%;
+    position: relative;
+    z-index: 2;
+}
+
+.section-label {
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 6vw, 70px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--dark-red);
+}
+
+.section-title span {
+    color: var(--rose);
+    font-style: italic;
+}
+
+.description {
+    font-size: 13px;
+    line-height: 2.1;
+    color: #8b6974;
+    max-width: 580px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        radial-gradient(ellipse at 50% 35%, #ffe1e8, transparent 65%),
+        linear-gradient(180deg, #fff6f7, #fffafa);
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 850px;
+    animation: appear 1.5s ease;
+}
+
+.hero .eyebrow {
+    color: var(--rose);
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(65px, 13vw, 140px);
+    font-weight: 400;
+    color: var(--dark-red);
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: var(--rose);
+    font-style: italic;
+}
+
+.hero .description {
+    margin: 0 auto 35px;
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 16px 35px;
+    background: var(--red);
+    color: white;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: .4s;
+}
+
+.hero-button:hover {
+    background: var(--dark-red);
+    transform: translateY(-5px);
+}
+
+.scroll-text {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: #b48b97;
+}
+
+/* ABOUT */
+
+.about {
+    background: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 75px;
+    align-items: center;
+}
+
+.about-art {
+    min-height: 430px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #f9dce4, #f3b8c9);
+    overflow: hidden;
+}
+
+.about-art::before {
+    content: "A";
+    font-family: 'Playfair Display', serif;
+    font-size: 300px;
+    font-style: italic;
+    color: rgba(255,255,255,.6);
+}
+
+.about-art::after {
+    content: "♡";
+    position: absolute;
+    font-size: 100px;
+    color: var(--red);
+    bottom: 35px;
+    right: 45px;
+}
+
+.about-text .description {
+    margin-top: 25px;
+}
+
+/* LETTER */
+
+.letter-section {
+    text-align: center;
+    background: var(--light-pink);
+}
+
+.letter-section .description {
+    margin: 20px auto 45px;
+}
+
+.envelope-area {
+    max-width: 500px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+.envelope {
+    position: relative;
+    height: 260px;
+    background: #b64c6d;
+    border-radius: 5px;
+    box-shadow: 0 25px 50px rgba(80,20,40,.18);
+    cursor: pointer;
+    transition: transform .5s;
+}
+
+.envelope:hover {
+    transform: translateY(-7px);
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #d97891;
+    clip-path: polygon(0 0, 50% 55%, 100% 0);
+    transform-origin: top;
+    transition: transform .8s;
+    z-index: 3;
+}
+
+.envelope.open::before {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.envelope::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #c45b79;
+    clip-path: polygon(0 100%, 50% 48%, 100% 100%);
+    z-index: 2;
+}
+
+.envelope-heart {
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: white;
+    transition: .5s;
+}
+
+.envelope.open .envelope-heart {
+    opacity: 0;
+}
+
+.envelope-hint {
+    margin-top: 25px;
+    color: var(--red);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.letter {
+    display: none;
+    background: white;
+    padding: 45px 35px;
+    margin-top: 25px;
+    box-shadow: 0 15px 45px rgba(80,20,40,.08);
+    text-align: left;
+    animation: appear 1s ease;
+}
+
+.letter.show {
+    display: block;
+}
+
+.letter h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    color: var(--red);
+    margin-bottom: 20px;
+}
+
+.letter p {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    line-height: 2;
+    color: #75515e;
+    white-space: pre-line;
+}
+
+.letter .signature {
+    text-align: right;
+    color: var(--rose);
+    font-style: italic;
+    margin-top: 25px;
+}
+
+/* REASONS */
+
+.reasons {
+    background: white;
+    text-align: center;
+}
+
+.reasons-heading {
+    margin-bottom: 55px;
+}
+
+.reasons-heading .description {
+    margin: 20px auto;
+}
+
+.reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.reason-card {
+    padding: 40px 25px;
+    background: #fff7f8;
+    border: 1px solid #f6e5e9;
+    transition: .4s;
+}
+
+.reason-card:hover {
+    transform: translateY(-10px);
+    background: #ffeef2;
+    box-shadow: 0 20px 35px rgba(80,20,40,.08);
+}
+
+.reason-icon {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.reason-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    color: var(--red);
+    margin-bottom: 12px;
+}
+
+.reason-card p {
+    color: #987783;
+    font-size: 12px;
+    line-height: 2;
+}
+
+/* MEMORIES */
+
+.memories {
+    background: linear-gradient(135deg, #491b2c, #762c48);
+    color: white;
+}
+
+.memories .section-title {
+    color: white;
+}
+
+.memories .section-label {
+    color: #ffbdcf;
+}
+
+.memories .description {
+    color: #e8cbd5;
+    margin-top: 20px;
+}
+
+.timeline {
+    max-width: 750px;
+    margin: 60px auto 0;
+    border-left: 1px solid rgba(255,255,255,.35);
+    padding-left: 35px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 45px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -41px;
+    top: 5px;
+    width: 11px;
+    height: 11px;
+    background: #ffb8ca;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #ffb8ca;
+}
+
+.timeline-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    color: #ffc6d4;
+    margin-bottom: 10px;
+}
+
+.timeline-item p {
+    color: #e6c5d0;
+    font-size: 12px;
+    line-height: 2;
+}
+
+/* SPECIAL MESSAGE */
+
+.special {
+    text-align: center;
+    background:
+        radial-gradient(circle at center, #ffe3ea, transparent 70%),
+        #fffafa;
+    padding: 150px 9%;
+}
+
+.special .big-heart {
+    font-size: 65px;
+    display: inline-block;
+    animation: heartbeat 1.6s infinite;
+}
+
+.special h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(35px, 7vw, 75px);
+    color: var(--dark-red);
+    font-weight: 400;
+    margin: 25px 0;
+}
+
+.special h2 span {
+    color: var(--rose);
+    font-style: italic;
+}
+
+.special .description {
+    margin: auto;
+}
+
+/* FOOTER */
+
+footer {
+    background: #2d101b;
+    text-align: center;
+    padding: 45px 20px;
+    color: #e8cbd5;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+footer .footer-heart {
+    color: #ff9fb9;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+/* REVEAL ANIMATION */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity .9s, transform .9s;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 850px) {
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .reasons-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    header {
+        padding: 18px 6%;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        padding: 25px;
+        background: white;
+        flex-direction: column;
+        gap: 25px;
+        box-shadow: 0 15px 25px rgba(80,20,40,.08);
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    section {
+        padding: 85px 7%;
+    }
+
+    .about-art {
+        min-height: 300px;
+    }
+
+    .about-art::before {
+        font-size: 230px;
+    }
+
+    .reasons-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .letter {
+        padding: 30px 22px;
+    }
+
+    .envelope {
+        height: 210px;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="loader" id="loader">
+    <div class="loader-heart">❤️</div>
+    <p>A LITTLE SOMETHING FOR AYA</p>
+</div>
+
+<div id="hearts"></div>
+
+<!-- OPENING SURPRISE -->
+
+<div class="intro-screen" id="introScreen">
+    <div class="intro-content">
+        <p class="small">A little surprise made with love</p>
+        <h1>For <span>Aya</span> ♡</h1>
+        <p>
+            Some people make ordinary days feel special.
+            This little corner of the internet is dedicated to you.
+        </p>
+        <button class="open-button" id="openSurprise">
+            Open Your Surprise ♥
+        </button>
+    </div>
+</div>
+
+<!-- NAVIGATION -->
+
+<header id="header">
+    <a href="#home" class="logo">For <span>Aya.</span></a>
+
+    <button class="menu-button" id="menuButton" aria-label="Open menu">
+        ☰
+    </button>
+
+    <nav id="nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#letter">My Letter</a>
+        <a href="#reasons">Reasons</a>
+        <a href="#memories">Memories</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="eyebrow">A page dedicated to someone special</p>
+
+        <h1>
+            Dear <span>Aya</span>
+        </h1>
+
+        <p class="description">
+            If I could turn my feelings into a thousand words,
+            I would still find a thousand more.
+            So I made this little place to tell you how special you are.
+        </p>
+
+        <a href="#about" class="hero-button">
+            Discover your surprise ♡
+        </a>
+    </div>
+
+    <div class="scroll-text">
+        SCROLL TO EXPLORE ↓
+    </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <div class="about-art reveal"></div>
+
+    <div class="about-text reveal">
+        <p class="section-label">A little introduction</p>
+
+        <h2 class="section-title">
+            You make life feel a little more <span>beautiful.</span>
+        </h2>
+
+        <p class="description">
+            Aya, this website isn't about expensive gifts or
+            complicated things. It's simply a small way to show
+            you that someone took the time to create something
+            just for you.
+            <br><br>
+            I hope every little detail here reminds you that
+            you are appreciated, valued and cared for.
+        </p>
+    </div>
+
+</section>
+
+<!-- LETTER -->
+
+<section class="letter-section" id="letter">
+
+    <p class="section-label">Words from the heart</p>
+
+    <h2 class="section-title">
+        A letter <span>for you.</span>
+    </h2>
+
+    <p class="description">
+        There is something I want you to read.
+        Open the envelope whenever you're ready.
+    </p>
+
+    <div class="envelope-area">
+
+        <div class="envelope" id="envelope" role="button"
+             tabindex="0" aria-label="Open the letter">
+            <div class="envelope-heart">♥</div>
+        </div>
+
+        <p class="envelope-hint" id="envelopeHint">
+            TAP THE ENVELOPE TO OPEN
+        </p>
+
+        <article class="letter" id="letterContent">
+            <h3>My dearest Aya,</h3>
+
+            <p id="typedLetter"></p>
+
+            <p class="signature">
+                With all my affection, ❤️
+            </p>
+        </article>
+
+    </div>
+
+</section>
+
+<!-- REASONS -->
+
+<section class="reasons" id="reasons">
+
+    <div class="reasons-heading reveal">
+        <p class="section-label">Little things that matter</p>
+
+        <h2 class="section-title">
+            Reasons you're <span>special.</span>
+        </h2>
+
+        <p class="description">
+            Sometimes it's the little things that make a person unforgettable.
+        </p>
+    </div>
+
+    <div class="reasons-grid">
+
+        <div class="reason-card reveal">
+            <div class="reason-icon">🌷</div>
+            <h3>Your Kindness</h3>
+            <p>
+                The way you care and the little things you do
+                make a difference.
+            </p>
+        </div>
+
+        <div class="reason-card reveal">
+            <div class="reason-icon">✨</div>
+            <h3>Your Personality</h3>
+            <p>
+                There is something unique about the way you
+                see and experience the world.
+            </p>
+        </div>
+
+        <div class="reason-card reveal">
+            <div class="reason-icon">😊</div>
+            <h3>Your Smile</h3>
+            <p>
+                A simple smile can turn an ordinary moment
+                into a beautiful memory.
+            </p>
+        </div>
+
+        <div class="reason-card reveal">
+            <div class="reason-icon">💗</div>
+            <h3>Your Heart</h3>
+            <p>
+                The care and warmth you show deserve
+                to be appreciated.
+            </p>
+        </div>
+
+        <div class="reason-card reveal">
+            <div class="reason-icon">🌙</div>
+            <h3>Your Presence</h3>
+            <p>
+                Even the simplest conversations can become
+                moments worth remembering.
+            </p>
+        </div>
+
+        <div class="reason-card reveal">
+            <div class="reason-icon">🦋</div>
+            <h3>Simply You</h3>
+            <p>
+                You don't need to be anyone else.
+                Being yourself is already special.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MEMORIES -->
+
+<section class="memories" id="memories">
+
+    <div class="reveal">
+        <p class="section-label">Our little story</p>
+
+        <h2 class="section-title">
+            Moments worth <span>remembering.</span>
+        </h2>
+
+        <p class="description">
+            Every beautiful story is made of little moments.
+            Here are a few places to celebrate yours.
+        </p>
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item reveal">
+            <h3>The Beginning</h3>
+            <p>
+                The moment our paths crossed and a new chapter began.
+            </p>
+        </div>
+
+        <div class="timeline-item reveal">
+            <h3>The Conversations</h3>
+            <p>
+                The random talks, the laughter and the little
+                details that made us closer.
+            </p>
+        </div>
+
+        <div class="timeline-item reveal">
+            <h3>The Beautiful Moments</h3>
+            <p>
+                The moments that remind us why some connections
+                are worth appreciating.
+            </p>
+        </div>
+
+        <div class="timeline-item reveal">
+            <h3>More to Come</h3>
+            <p>
+                There are still so many beautiful memories
+                waiting to be made.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FINAL MESSAGE -->
+
+<section class="special">
+
+    <div class="reveal">
+        <div class="big-heart">❤️</div>
+
+        <p class="section-label">One last thing</p>
+
+        <h2>
+            You're one of my favorite parts of <span>life.</span>
+        </h2>
+
+        <p class="description">
+            Never forget how valuable you are.
+            I hope life gives you countless reasons to smile,
+            beautiful opportunities and all the happiness
+            your heart deserves.
+        </p>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="footer-heart">♥</div>
+
+    <p>MADE WITH LOVE, JUST FOR AYA</p>
+
+    <p style="margin-top: 12px;">
+        A LITTLE WEBSITE WITH A LOT OF FEELING · © 2026
+    </p>
+</footer>
+
+<script>
+
+// PAGE LOADER
+
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        document.getElementById("loader").classList.add("hide");
+    }, 700);
+});
+
+// OPEN SURPRISE
+
+const introScreen = document.getElementById("introScreen");
+
+document.getElementById("openSurprise").addEventListener("click", () => {
+    introScreen.classList.add("hide");
+});
+
+// NAVIGATION
+
+const header = document.getElementById("header");
+const nav = document.getElementById("nav");
+const menuButton = document.getElementById("menuButton");
+
+window.addEventListener("scroll", () => {
+    header.classList.toggle("scrolled", window.scrollY > 50);
+});
+
+menuButton.addEventListener("click", () => {
+    nav.classList.toggle("active");
+    menuButton.textContent =
+        nav.classList.contains("active") ? "×" : "☰";
+});
+
+document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", () => {
+        nav.classList.remove("active");
+        menuButton.textContent = "☰";
+    });
+});
+
+// FLOATING HEARTS
+
+const heartsContainer = document.getElementById("hearts");
+
+const heartSymbols = ["♥", "♡", "❤"];
+
+function createHeart() {
+
+    const heart = document.createElement("span");
+
+    heart.className = "heart";
+
+    heart.textContent =
+        heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (12 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (7 + Math.random() * 8) + "s";
+
+    heartsContainer.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 16000);
+}
+
+setInterval(createHeart, 650);
+
+// SCROLL REVEAL
+
+const revealObserver = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+        }
+
+    });
+
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(element => {
+    revealObserver.observe(element);
+});
+
+// LOVE LETTER
+
+const envelope = document.getElementById("envelope");
+const letterContent = document.getElementById("letterContent");
+const typedLetter = document.getElementById("typedLetter");
+const envelopeHint = document.getElementById("envelopeHint");
+
+const letterText = `I don't know if words will ever be enough to explain how much you mean to me.
+
+But I want you to know something, Aya.
+
+You don't have to be perfect. You don't have to pretend to be happy every day. You can have difficult days, quiet moments and times when you simply need space.
+
+I appreciate you for who you are, not for what you can give me.
+
+I hope this little surprise makes you smile, even if only for a moment.
+
+Thank you for being part of my life and for all the little moments that make our story special.
+
+You deserve kindness, happiness and a thousand beautiful reasons to smile.
+
+Never forget how special you are.`;
+
+let letterOpened = false;
+let typingInterval;
+
+function openLetter() {
+
+    if (letterOpened) return;
+
+    letterOpened = true;
+
+    envelope.classList.add("open");
+    envelopeHint.textContent = "A LITTLE MESSAGE JUST FOR YOU ❤️";
+    letterContent.classList.add("show");
+
+    let index = 0;
+
+    typingInterval = setInterval(() => {
+
+        if (index < letterText.length) {
+            typedLetter.textContent += letterText.charAt(index);
+            index++;
+        } else {
+            clearInterval(typingInterval);
+        }
+
+    }, 28);
+
+    setTimeout(() => {
+        letterContent.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    }, 400);
+}
+
+envelope.addEventListener("click", openLetter);
+
+envelope.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openLetter();
+    }
+});
+
+</script>
+
+</body>
+</html>
